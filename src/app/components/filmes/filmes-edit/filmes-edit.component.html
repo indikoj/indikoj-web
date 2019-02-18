@@ -1,0 +1,44 @@
+<!--div>
+  <h1>
+    Alterar Filmes
+  </h1>
+  <div>
+    <label>Id:</label>
+    <input [(ngModel)]="filme.id" placeholder="Id" />
+    <label>Nome:</label>
+    <input [(ngModel)]="filme.nome" placeholder="Nome"/>
+    <label>Descricao:</label>
+    <input [(ngModel)]="filme.descricao" placeholder="Descricao"/>
+  </div>
+  <button (click)="updateFilme()">Alterar</button>
+</div-->
+<div class="component-container mat-elevation-z8">
+    <div class="component-loading-shade"
+         *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+      <a mat-flat-button color="primary" (click)="filmeDetails()"><mat-icon>info</mat-icon></a>
+    </div>
+    <mat-card class="component-card">
+      <form [formGroup]="filmeForm" (ngSubmit)="onFormSubmit(filmeForm.value)">
+        <mat-form-field class="component-full-width">
+          <input matInput placeholder="Nome" formControlName="nome"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!filmeForm.get('nome').valid && filmeForm.get('nome').touched">Please enter Product Name</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="component-full-width">
+          <input matInput placeholder="Descricao" formControlName="descricao"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!filmeForm.get('descricao').valid && filmeForm.get('descricao').touched">Please enter Product Description</span>
+          </mat-error>
+        </mat-form-field>
+        <div class="button-row">
+          <button type="submit" [disabled]="!filmeForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+        </div>
+      </form>
+    </mat-card>
+  </div>

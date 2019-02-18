@@ -1,0 +1,33 @@
+{{tipoServico.nome}}
+<div class="component-container mat-elevation-z8">
+  <div class="component-loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/tipo-servicos']">
+      <mat-icon>list</mat-icon>
+    </a>
+  </div>
+  <mat-card class="component-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>{{tipoServico.nome}}</h2>
+      </mat-card-title>
+      <mat-card-subtitle>{{tipoServico.nome}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <dl>
+        <dt>TipoServicos:</dt>
+        <dd>{{tipoServico.nome}}</dd>
+      </dl>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-flat-button color="primary" [routerLink]="['/tipo-servicos-edit', tipoServico.codigo]">
+        <mat-icon>edit</mat-icon>
+      </a>
+      <a mat-flat-button color="warn" (click)="deletaTipoServicos(tipoServico.codigo)">
+        <mat-icon>delete</mat-icon>
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,42 @@
+<!--div *ngIf="categoria">
+    <h2>Detalhe do {{categoria.nome | uppercase}}</h2>
+    <div><span>Description: </span>{{categoria.descricao}}</div>
+    <div>
+      <button routerLink="/categorias-edit/{{categoria.id}}">
+        Editar Categoria
+      </button>
+    </div>
+  </div-->
+
+<div class="component-container mat-elevation-z8">
+  <div class="component-loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/categorias']">
+      <mat-icon>list</mat-icon>
+    </a>
+  </div>
+  <mat-card class="component-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>{{categoria.nome}}</h2>
+      </mat-card-title>
+      <mat-card-subtitle>{{categoria.nome}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <dl>
+        <dt>Categoria:</dt>
+        <dd>{{categoria.nome}}</dd>
+      </dl>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-flat-button color="primary" [routerLink]="['/categorias-edit', categoria.id]">
+        <mat-icon>edit</mat-icon>
+      </a>
+      <a mat-flat-button color="warn" (click)="deletaCategoria(categoria.id)">
+        <mat-icon>delete</mat-icon>
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</div>

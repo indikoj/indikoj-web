@@ -1,0 +1,42 @@
+<!--div *ngIf="filme">
+    <h2>Detalhe do {{filme.nome | uppercase}}</h2>
+    <div><span>Description: </span>{{filme.descricao}}</div>
+    <div>
+      <button routerLink="/filmes-edit/{{filme.id}}">
+        Editar Filme
+      </button>
+    </div>
+  </div-->
+
+<div class="component-container mat-elevation-z8">
+  <div class="component-loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/filmes']">
+      <mat-icon>list</mat-icon>
+    </a>
+  </div>
+  <mat-card class="component-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>{{filme.nome}}</h2>
+      </mat-card-title>
+      <mat-card-subtitle>{{filme.nome}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <dl>
+        <dt>Description:</dt>
+        <dd>{{filme.descricao}}</dd>
+      </dl>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-flat-button color="primary" [routerLink]="['/filmes-edit', filme.id]">
+        <mat-icon>edit</mat-icon>
+      </a>
+      <a mat-flat-button color="warn" (click)="deletaFilme(filme.id)">
+        <mat-icon>delete</mat-icon>
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</div>
