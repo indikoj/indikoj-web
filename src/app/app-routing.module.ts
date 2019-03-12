@@ -10,10 +10,11 @@ import { CategoriasAddComponent } from './components/categorias/categorias-add/c
 import { CategoriasComponent } from './components/categorias/categorias/categorias.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuardService } from './shared/guards/auth-guard.service';
-import { TipoServicosComponent } from './components/tipo-servicos/tipo-servicos/tipo-servicos.component';
-import { TipoServicosAddComponent } from './components/tipo-servicos/tipo-servicos-add/tipo-servicos-add.component';
-import { TipoServicosDetailsComponent } from './components/tipo-servicos/tipo-servicos-detais/tipo-servicos-details.component';
-import { TipoServicosEditComponent } from './components/tipo-servicos/tipo-servicos-edit/tipo-servicos-edit.component';
+import { CompanyTypesComponent } from './components/company-types/company-types/company-types.component';
+import { CompanyTypesAddComponent } from './components/company-types/company-types-add/company-types-add.component';
+import { CompanyTypesEditComponent } from './components/company-types/company-type-edit/company-types-edit.component';
+import { CompanyTypesDetailsComponent } from './components/company-types/company-types-detais/company-types-details.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   //Filmes
@@ -67,27 +68,34 @@ const routes: Routes = [
   },
   //tipo de servico
   {
-    path: 'tipo-servicos',
-    component: TipoServicosComponent,
-    data: { title: 'Lista de Tipo de Servicos'},
+    path: 'company-types',
+    component: CompanyTypesComponent,
+    data: { title: 'List companys'},
     canActivate: [AuthGuardService]
   },
   {
-   path:'tipo-servicos-add',
-   component: TipoServicosAddComponent,
-   data: { title: 'Adicao de Tipo de Servicos'},
+   path:'company-types-add',
+   component: CompanyTypesAddComponent,
+   data: { title: 'Add companys'},
    canActivate: [AuthGuardService]
   },
   {
-    path: 'tipo-servicos-details/:id',
-    component: TipoServicosDetailsComponent,
-    data: { title: 'Detalhes de Tipo de Servicos'},
+    path: 'company-types-details/:id',
+    component: CompanyTypesDetailsComponent,
+    data: { title: 'Details of companys'},
     canActivate: [AuthGuardService]
   },
   {
-    path: 'tipo-servicos-edit/:id',
-    component: TipoServicosEditComponent,
-    data: { title: 'Alteração de Tipo de Servicos'}
+    path: 'company-types-edit/:id',
+    component: CompanyTypesEditComponent,
+    data: { title: 'Edit companys'},
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    data: { title: 'Alteração de Tipo de Servicos'},
+    canActivate: [AuthGuardService]
   },
   //Login
   {path: 'login', component: LoginComponent},

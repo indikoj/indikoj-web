@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TipoServicosEditComponent } from './tipo-servicos-edit.component';
+import { CompanyTypesComponent } from './company-types.component';
 
-describe('TipoServicosEditComponent', () => {
-  let component: TipoServicosEditComponent;
-  let fixture: ComponentFixture<TipoServicosEditComponent>;
+describe('CompanyTypesComponent', () => {
+  let component: CompanyTypesComponent;
+  let fixture: ComponentFixture<CompanyTypesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TipoServicosEditComponent ]
+      declarations: [ CompanyTypesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TipoServicosEditComponent);
+    fixture = TestBed.createComponent(CompanyTypesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

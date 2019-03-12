@@ -1,3 +1,4 @@
+import { CompanyType } from 'src/app/shared/CompanyType';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -25,14 +26,18 @@ import {
   MatCardModule,
   MatFormFieldModule, 
   MatToolbarModule,
-  MatMenuModule, MatSidenavModule, MatListModule } from "@angular/material";
+  MatMenuModule, 
+  MatSidenavModule, 
+  MatListModule,
+  MatGridListModule } from "@angular/material";
 import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { LoginComponent } from './components/login/login.component';
-import { TipoServicosComponent } from './components/tipo-servicos/tipo-servicos/tipo-servicos.component';
-import { TipoServicosAddComponent } from './components/tipo-servicos/tipo-servicos-add/tipo-servicos-add.component';
-import { TipoServicosEditComponent } from './components/tipo-servicos/tipo-servicos-edit/tipo-servicos-edit.component';
-import { TipoServicosDetailsComponent } from './components/tipo-servicos/tipo-servicos-detais/tipo-servicos-details.component';
+import { CompanyTypesComponent } from './components/company-types/company-types/company-types.component';
+import { CompanyTypesAddComponent } from './components/company-types/company-types-add/company-types-add.component';
+import { CompanyTypesEditComponent } from './components/company-types/company-type-edit/company-types-edit.component';
+import { CompanyTypesDetailsComponent } from './components/company-types/company-types-detais/company-types-details.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -47,10 +52,11 @@ import { TipoServicosDetailsComponent } from './components/tipo-servicos/tipo-se
     CategoriasEditComponent,
     NavComponent,
     LoginComponent,
-    TipoServicosComponent,
-    TipoServicosAddComponent,
-    TipoServicosEditComponent,
-    TipoServicosDetailsComponent
+    CompanyTypesComponent,
+    CompanyTypesAddComponent,
+    CompanyTypesEditComponent,
+    CompanyTypesDetailsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +78,8 @@ import { TipoServicosDetailsComponent } from './components/tipo-servicos/tipo-se
     MatMenuModule,
     LayoutModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,35 +14,35 @@
   </ul>
 </div-->
 <mat-toolbar color="primary">
-  <span class="fill-remaining-space">
+    <span class="fill-remaining-space">
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu" [overlapTrigger]="false">
-      <button mat-menu-item (click)="navigate('home')">
+      <button mat-menu-item (click)="navigate('dashboard')">
         <mat-icon>home</mat-icon>
         <span>Home</span>
-      </button>
-      <button mat-menu-item (click)="navigate('filmes')">
+    </button>
+    <button mat-menu-item (click)="navigate('filmes')">
         <mat-icon>movie</mat-icon>
         <span>Filmes</span>
       </button>
-      <button mat-menu-item (click)="navigate('categorias')">
+    <button mat-menu-item (click)="navigate('categorias')">
         <mat-icon>category</mat-icon>
         <span>Categorias</span>
       </button>
-      <button mat-menu-item (click)="navigate('tipo-servicos')">
+    <button mat-menu-item (click)="navigate('company-types')">
         <mat-icon>build</mat-icon>
-        <span>Tipo de Servico</span>
+        <span>Company type</span>
       </button>
-      <button mat-menu-item (click)="navigate('logout')">
+    <button mat-menu-item (click)="navigate('logout')">
         <mat-icon>exit_to_app</mat-icon>
         <span>Logout</span>
       </button>
     </mat-menu>
-  </span>
-  <span class="fill-remaining-space">Sistemas de Filmes</span>
+    </span>
+    <span class="fill-remaining-space">Sistemas de Filmes</span>
 </mat-toolbar>
 <div class="container">
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </div>

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { from } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,20 +8,32 @@ import { from } from 'rxjs';
 })
 export class AppComponent {
   title = 'filmes';
-  
-  constructor(private router: Router) {}
+
+  constructor(private router: Router) { }
 
   navigate(menu: string) {
-    if (menu === 'filmes') {
+    if (menu === 'logout') {
+      this.logout();
+    } else {
+      this.chageMenu(menu);
+    }
+      
+    /*if (menu === 'filmes') {
       this.router.navigate(['/filmes']);
     } else if (menu === 'categorias') {
       this.router.navigate(['/categorias']);
-    } else if (menu === 'logout') {
-      this.logout();
+    } else if (menu === ) {
+      
     } else if (menu === 'tipo-servicos') {
       this.router.navigate(['/tipo-servicos']);
-    }
+    } else if (menu === 'dashboard') {
+      this.router.navigate(['/dashboard ']);
+    }*/
   }
+
+  chageMenu(menu:string):void {
+    this.router.navigate(['/'+ menu +'']);
+  } 
 
   logout() {
     localStorage.setItem("usuarioLogado", "");
