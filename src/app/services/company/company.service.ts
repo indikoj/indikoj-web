@@ -3,7 +3,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { catchError, tap, map } from 'rxjs/operators';
-import { CompanyType } from '../../shared/CompanyType';
+import { Company } from '../../shared/Company';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,48 +15,47 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class CompanyTypeService {
+export class CompanyService {
   private BASE_URL: string = environment.baseUrl;
-  private apiUrl = `${this.BASE_URL}/company-types`;
-  
-  constructor(private http: HttpClient) { }
+  private apiUrl = `${this.BASE_URL}/companys`;
+ 
+  constructor(private http: HttpClient) {}
 
-  get(): Observable<CompanyType[]> {
-      console.log('Heeee:' + httpOptions);
-    return this.http.get<CompanyType[]>(this.apiUrl, httpOptions).pipe(
-      tap(tipoServicos => console.log('get all companyTypes' + CompanyType)),
+  get(): Observable<Company[]> {
+    return this.http.get<Company[]>(this.apiUrl, httpOptions).pipe(
+      tap(company => console.log('get all companyTypes' + company)),
       catchError(this.handleError('get-CompanyType', []))
     );
   }
 
-  add(companyType: CompanyType): Observable<CompanyType> {
-    return this.http.post<CompanyType>(this.apiUrl, companyType, httpOptions).pipe(
-      tap((companyType: CompanyType) => console.log('adicionou o companyType' + companyType)),
-      catchError(this.handleError<CompanyType>('add-CompanyType'))
+  add(companyType: Company): Observable<Company> {
+    return this.http.post<Company>(this.apiUrl, companyType, httpOptions).pipe(
+      tap((companyType: Company) => console.log('adicionou o companyType' + companyType)),
+      catchError(this.handleError<Company>('add-CompanyType'))
     );
   }
 
-  update(id: number, companyType: CompanyType): Observable<any> {
+  update(id: number, company: Company): Observable<any> {
     const url = `${this.apiUrl}/${id}`;
-    return this.http.put(url, companyType, httpOptions).pipe(
+    return this.http.put(url, company, httpOptions).pipe(
       tap(companyType => console.log(`updated companyType id=${id}`)),
       catchError(this.handleError<any>('update-CompanyType'))
     );
   }
 
-  getById(id: number): Observable<CompanyType> {
+  getById(id: number): Observable<Company> {
     const url = `${this.apiUrl}/${id}`;
-    return this.http.get<CompanyType>(url, httpOptions).pipe(
+    return this.http.get<Company>(url, httpOptions).pipe(
       tap(companyType => console.log(`CompanyType by id=${id}`)),
-      catchError(this.handleError<CompanyType>(`CompanyType by id=${id}`))
+      catchError(this.handleError<Company>(`CompanyType by id=${id}`))
     );
   }
 
-  remove(id: number): Observable<CompanyType> {
+  remove(id: number): Observable<Company> {
     const url = `${this.apiUrl}/${id}`;
-    return this.http.delete<CompanyType>(url, httpOptions).pipe(
+    return this.http.delete<Company>(url, httpOptions).pipe(
       tap(companyType => console.log(`remove companyType by id=${id}`)),
-      catchError(this.handleError<CompanyType>('remove - CompanyType'))
+      catchError(this.handleError<Company>('remove - CompanyType'))
     );
   }
 

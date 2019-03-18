@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         console.log(this.token);
 
         // store username and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('token', JSON.stringify({ username: user.userId, token: this.token }));
+        localStorage.setItem('token', this.token);
         console.log('setLocalstorge: ' + localStorage.getItem('token'));
 
         this.router.navigate(['/dashboard']);
@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
     })
     .catch((err) => {
       console.log(err);
-
       this.error = 'Usuário e senha estão incorretos!';
       this.loading = false;
     });
@@ -48,14 +47,6 @@ export class LoginComponent implements OnInit {
     this.token = null;
     localStorage.removeItem('token');
   }
-
-   /* if(this.user.usuario == 'admin' && this.user.password == 'admin'){
-     localStorage.setItem('usuarioLogado', "rogerio");
-     this.router.navigate(["filmes"]);
-    }else {
-      alert("Invalid credentials");
-    }
-  }*/
 
   ngOnInit() {
   }

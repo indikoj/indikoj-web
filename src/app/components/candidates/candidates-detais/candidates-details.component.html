@@ -1,0 +1,98 @@
+<div class="component-container mat-elevation-z8">
+    <div class="component-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+        <a mat-flat-button color="primary" [routerLink]="['/candidates']">
+            <mat-icon>list</mat-icon>
+        </a>
+    </div>
+    <mat-card class="component-card">
+        <mat-card-header>
+            <mat-card-title>
+                <h2>{{candidate.name}}</h2>
+            </mat-card-title>
+            <mat-card-subtitle>{{candidate.name}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <dl>
+                <dt>Candidate:</dt>
+                <dd>{{candidate.name}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-header>
+            <mat-card-title>
+                <h2>{{candidate.email}}</h2>
+            </mat-card-title>
+            <mat-card-subtitle>{{candidate.email}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <dl>
+                <dt>email:</dt>
+                <dd>{{candidate.email}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-header>
+            <mat-card-title>
+                <h2>{{candidate.mobile}}</h2>
+            </mat-card-title>
+            <mat-card-subtitle>{{candidate.mobile}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <dl>
+                <dt>mobile:</dt>
+                <dd>{{candidate.mobile}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-header>
+            <mat-card-title>
+                <h2>{{candidate.shortCompetences}}</h2>
+            </mat-card-title>
+            <mat-card-subtitle>{{candidate.shortCompetences}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <dl>
+                <dt>shortCompetences:</dt>
+                <dd>{{candidate.shortCompetences}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-header>
+            <mat-card-title>
+                <h2>{{candidate.curriculum}}</h2>
+            </mat-card-title>
+            <mat-card-subtitle>{{candidate.curriculum}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <dl>
+                <dt>curriculum:</dt>
+                <dd>{{candidate.curriculum}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-header>
+            <mat-card-title>
+                <h2>{{candidate.companyId}}</h2>
+            </mat-card-title>
+            <mat-card-subtitle>{{candidate.companyId}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <dl>
+                <dt>companyId:</dt>
+                <dd>{{candidate.companyId}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <a mat-flat-button color="primary" [routerLink]="['/candidates-edit', candidate.id]">
+                <mat-icon>edit</mat-icon>
+            </a>
+            <a mat-flat-button color="warn" (click)="delete(candidate.id)">
+                <mat-icon>delete</mat-icon>
+            </a>
+        </mat-card-actions>
+    </mat-card>
+</div>

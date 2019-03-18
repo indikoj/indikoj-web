@@ -17,18 +17,6 @@ export class AppComponent {
     } else {
       this.chageMenu(menu);
     }
-      
-    /*if (menu === 'filmes') {
-      this.router.navigate(['/filmes']);
-    } else if (menu === 'categorias') {
-      this.router.navigate(['/categorias']);
-    } else if (menu === ) {
-      
-    } else if (menu === 'tipo-servicos') {
-      this.router.navigate(['/tipo-servicos']);
-    } else if (menu === 'dashboard') {
-      this.router.navigate(['/dashboard ']);
-    }*/
   }
 
   chageMenu(menu:string):void {
@@ -36,7 +24,7 @@ export class AppComponent {
   } 
 
   logout() {
-    localStorage.setItem("usuarioLogado", "");
+    localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
 }

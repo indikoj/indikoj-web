@@ -1,18 +1,3 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<!--div style="text-align:center">
-  <h1>
-    Bem vindo to {{ title }}!
-  </h1>
-</div>
-<div class="nav">
-  <ul>
-    <li class="home"><a href="#">Home</a></li>
-    <li class="tutorials"><a class="active" href="/filmes">Filmes</a></li>
-    <li class="about"><a href="/filmes-add">Adicionar Filmes</a></li>
-    <li class="news"><a href="#">Newsletter</a></li>
-    <li class="contact"><a href="#">Contact</a></li>
-  </ul>
-</div-->
 <mat-toolbar color="primary">
     <span class="fill-remaining-space">
     <button mat-icon-button [matMenuTriggerFor]="menu">
@@ -23,13 +8,21 @@
         <mat-icon>home</mat-icon>
         <span>Home</span>
     </button>
-    <button mat-menu-item (click)="navigate('filmes')">
+    <button mat-menu-item (click)="navigate('register')">
         <mat-icon>movie</mat-icon>
-        <span>Filmes</span>
+        <span>register</span>
       </button>
-    <button mat-menu-item (click)="navigate('categorias')">
+    <button mat-menu-item (click)="navigate('job-opportunitys')">
+      <mat-icon>movie</mat-icon>
+      <span>Vagas</span>
+    </button>
+    <button mat-menu-item (click)="navigate('candidates')">
+        <mat-icon>movie</mat-icon>
+        <span>Candidato</span>
+      </button>
+    <button mat-menu-item (click)="navigate('companys')">
         <mat-icon>category</mat-icon>
-        <span>Categorias</span>
+        <span>Empresa</span>
       </button>
     <button mat-menu-item (click)="navigate('company-types')">
         <mat-icon>build</mat-icon>

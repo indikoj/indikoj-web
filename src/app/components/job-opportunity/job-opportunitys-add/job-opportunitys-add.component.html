@@ -1,0 +1,43 @@
+<div class="component-container mat-elevation-z8">
+    <div class="component-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+        <a mat-flat-button color="primary" [routerLink]="['/job-opportunitys']">
+            <mat-icon>list</mat-icon>
+        </a>
+    </div>
+    <mat-card class="component-card">
+        <form [formGroup]="jobOpportunitysForm" (ngSubmit)="onFormSubmit(jobOpportunitysForm.value)">
+            <mat-form-field class="component-full-width">
+                <mat-select placeholder="companyType" formControlName="companyId" [errorStateMatcher]="matcher">
+                    <mat-option *ngFor="let company of companys" [value]="company.id">{{company.name}}</mat-option>
+                </mat-select>
+                <mat-error>
+                    <span *ngIf="!jobOpportunitysForm.get('companyId').valid && jobOpportunitysForm.get('companyId').touched">Please enter companyType</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Vagas Name" formControlName="name" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!jobOpportunitysForm.get('name').valid && jobOpportunitysForm.get('name').touched">Please enter Name</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Vagas code" formControlName="code" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!jobOpportunitysForm.get('code').valid && jobOpportunitysForm.get('code').touched">Please enter code</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Vagas shortDescription" formControlName="shortDescription" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!jobOpportunitysForm.get('shortDescription').valid && jobOpportunitysForm.get('shortDescription').touched">Please enter shortDescription</span>
+                </mat-error>
+            </mat-form-field>
+            <div class="button-row">
+                <button type="submit" [disabled]="!jobOpportunitysForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+            </div>
+        </form>
+    </mat-card>
+</div>

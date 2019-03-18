@@ -1,0 +1,72 @@
+<div class="component-container mat-elevation-z8">
+    <div class="component-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+        <a mat-flat-button color="primary" [routerLink]="['/job-opportunitys']">
+            <mat-icon>list</mat-icon>
+        </a>
+    </div>
+    <mat-card class="component-card">
+        <mat-card-header>
+            <mat-card-title>
+                <h2>{{jobOpportunity.name}}</h2>
+            </mat-card-title>
+            <mat-card-subtitle>{{jobOpportunity.name}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <dl>
+                <dt>job Opportunity:</dt>
+                <dd>{{jobOpportunity.name}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-header>
+            <mat-card-title>
+                <h2>{{jobOpportunity.code}}</h2>
+            </mat-card-title>
+            <mat-card-subtitle>{{jobOpportunity.code}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <dl>
+                <dt>job Opportunity code:</dt>
+                <dd>{{jobOpportunity.code}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-header>
+            <mat-card-title>
+                <h2>{{jobOpportunity.shortDescription}}</h2>
+            </mat-card-title>
+            <mat-card-subtitle>{{jobOpportunity.shortDescription}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <dl>
+                <dt>job Opportunity shortDescription:</dt>
+                <dd>{{jobOpportunity.shortDescription}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-header>
+            <mat-card-title>
+                <h2>{{jobOpportunity.companyId}}</h2>
+            </mat-card-title>
+            <mat-card-subtitle>{{jobOpportunity.companyId}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <dl>
+                <dt>job Opportunity companyId:</dt>
+                <dd>{{jobOpportunity.companyId}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <a mat-flat-button color="primary" [routerLink]="['/job-opportunitys-edit', jobOpportunity.id]">
+                <mat-icon>edit</mat-icon>
+            </a>
+            <a mat-flat-button color="warn" (click)="delete(jobOpportunity.id)">
+                <mat-icon>delete</mat-icon>
+            </a>
+        </mat-card-actions>
+    </mat-card>
+</div>

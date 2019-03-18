@@ -1,4 +1,3 @@
-{{tipoServico.nome}}
 <div class="component-container mat-elevation-z8">
     <div class="component-loading-shade" *ngIf="isLoadingResults">
         <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
@@ -18,14 +17,14 @@
         <mat-card-content>
             <dl>
                 <dt>Company Type:</dt>
-                <dd>{{companyType.nome}}</dd>
+                <dd>{{companyType.name}}</dd>
             </dl>
         </mat-card-content>
         <mat-card-actions>
             <a mat-flat-button color="primary" [routerLink]="['/company-types-edit', companyType.id]">
                 <mat-icon>edit</mat-icon>
             </a>
-            <a mat-flat-button color="warn" (click)="delete(companyType.codigo)">
+            <a mat-flat-button color="warn" (click)="delete(companyType.id)">
                 <mat-icon>delete</mat-icon>
             </a>
         </mat-card-actions>

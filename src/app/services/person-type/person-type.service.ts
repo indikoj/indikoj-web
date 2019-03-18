@@ -3,29 +3,29 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { catchError, tap, map } from 'rxjs/operators';
-import { User } from '../../shared/User';
-import { Register } from 'src/app/shared/Register';
+import { PersonType } from 'src/app/shared/PersonType';
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type':'application/json'})
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': localStorage.getItem('token')
+  })
 };
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class PersonTypeService {
   private BASE_URL: string = environment.baseUrl;
-  private apiUrl = `${this.BASE_URL}/auth`;
-  private registerUrl = `${this.BASE_URL}/register`;
+  private apiUrl = `${this.BASE_URL}/person-types`;
+  
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  login(user: User): Promise<User> {
-    return this.http.post<User>(this.apiUrl, user, httpOptions).toPromise();
-  }
-
-  register(register: Register): Promise<Boolean> {
-    return this.http.post<Boolean>(this.registerUrl, register, httpOptions).toPromise();
+  get(): Observable<PersonType[]> {
+    return this.http.get<PersonType[]>(this.apiUrl, httpOptions).pipe(
+      tap(tipoServicos => console.log('get all personType' + PersonType)),
+      catchError(this.handleError('get-PersonType', []))
+    );
   }
 
   private handleError<T> (operation = 'operation', result?: T) {

@@ -13,6 +13,7 @@ export class CompanyTypesAddComponent implements OnInit {
 
   //Melhoria trazendo o Objeto
   @Input() companyType = new CompanyType(); //{id: '', nome: '', descricao: ''};
+  name: string;
   companyTypesForm: FormGroup;
   isLoadingResults = false;
 
@@ -49,8 +50,7 @@ onFormSubmit(form:NgForm) {
   
   ngOnInit() {
     this.companyTypesForm = this.formBuilder.group({
-      'nome' : [null, Validators.required]
+      'name' : [null, Validators.required]
     });
   }
-
 }
